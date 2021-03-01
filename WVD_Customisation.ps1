@@ -302,10 +302,10 @@ Write-Host '*** WVD Customisation *** CONFIG TEAMS *** Configure Teams to start 
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run -Name Teams -PropertyType Binary -Value ([byte[]](0x01,0x00,0x00,0x00,0x1a,0x19,0xc3,0xb9,0x62,0x69,0xd5,0x01)) -Force
 Start-Sleep -Seconds 30
 
-Write-Host '*** WVD Customisation *** INSTALL *** Install Chocolatey. ***'
+#Write-Host '*** WVD Customisation *** INSTALL *** Install Chocolatey. ***'
 # Note: Remove if not required!
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install adobereader -y
+#Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+#choco install adobereader -y
 
 Write-Host '*** WVD Customisation ********************* END *************************'
 
