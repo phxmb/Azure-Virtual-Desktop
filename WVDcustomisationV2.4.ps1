@@ -1,6 +1,8 @@
 ########################################################
 #Set variables
-$FSLogixProfilePath = "\\server\profileshare"
+$FSLogixProfilePath1 = "\\server\profileshare"
+$FSLogixProfilePath2 = "\\server\profileshare"
+$FSLogixProfilePath3 = "\\server\profileshare"
 $AppAttachPath = "\\server\share"
 ########################################################
 
@@ -466,8 +468,12 @@ Add-MpPreference -ExclusionPath "%TEMP%\*.VHD"
 Add-MpPreference -ExclusionPath "%TEMP%\*.VHDX"
 Add-MpPreference -ExclusionPath "%Windir%\TEMP\*.VHD"
 Add-MpPreference -ExclusionPath "%Windir%\TEMP\*.VHDX"
-Add-MpPreference -ExclusionPath "$FSLogixProfilePath\**.VHD"
-Add-MpPreference -ExclusionPath "$FSLogixProfilePath\**.VHDX"
+Add-MpPreference -ExclusionPath "$FSLogixProfilePath1\**.VHD"
+Add-MpPreference -ExclusionPath "$FSLogixProfilePath1\**.VHDX"
+Add-MpPreference -ExclusionPath "$FSLogixProfilePath2\**.VHD"
+Add-MpPreference -ExclusionPath "$FSLogixProfilePath2\**.VHDX"
+Add-MpPreference -ExclusionPath "$FSLogixProfilePath3\**.VHD"
+Add-MpPreference -ExclusionPath "$FSLogixProfilePath3\**.VHDX"
 Add-MpPreference -ExclusionProcess "%ProgramFiles%\FSLogix\Apps\frxccd.exe"
 Add-MpPreference -ExclusionProcess "%ProgramFiles%\FSLogix\Apps\frxccds.exe"
 Add-MpPreference -ExclusionProcess "%ProgramFiles%\FSLogix\Apps\frxsvc.exe"
