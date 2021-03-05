@@ -279,7 +279,7 @@ Start-Sleep -Seconds 15
 
 Write-Host '*** WVD Customisation *** INSTALL *** Install Teams in Machine mode ***'
 Invoke-WebRequest -Uri 'https://teams.microsoft.com/downloads/desktopurl?env=production&plat=windows&arch=x64&managedInstaller=true&download=true' -OutFile 'c:\temp\Teams.msi'
-Invoke-Expression -Command 'msiexec /i C:\temp\Teams.msi /quiet /l*v C:\temp\teamsinstall.log ALLUSER=1 ALLUSERS=1'
+Invoke-Expression -Command 'msiexec /i C:\temp\Teams.msi /quiet /l*v C:\WVD\teamsinstall.log ALLUSER=1 ALLUSERS=1'
 Write-Host '*** WVD Customisation *** CONFIG TEAMS *** Configure Teams to start at sign in for all users. ***'
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run -Name Teams -PropertyType Binary -Value ([byte[]](0x01,0x00,0x00,0x00,0x1a,0x19,0xc3,0xb9,0x62,0x69,0xd5,0x01)) -Force
 Start-Sleep -Seconds 30
