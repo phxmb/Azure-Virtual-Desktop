@@ -297,29 +297,29 @@ Write-Host '*** WVD Customisation ********************* END ********************
 Write-Host '*** WVD Customisation *** INSTALL *** WVD Optimisation Script ***'
 # Note: This will download and extract the WVD optimization script.
 if (!(test-path -path c:\wvd)) {new-item -path c:\wvd -itemtype directory}
-Invoke-WebRequest -Uri 'https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool/archive/master.zip' -OutFile 'c:\WVD\master.zip'
+Invoke-WebRequest -Uri 'https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool/archive/refs/heads/main.zip' -OutFile 'c:\WVD\master.zip'
 Expand-Archive -Path 'C:\WVD\master.zip' -DestinationPath 'C:\WVD\'  -Force
 #create WVD optimisation Script
 
 Start-Sleep -Seconds 10
 
 #Overwriting the AppxPackage.json to configure which UWP are removed during optimisation
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.MSPaint', 'Microsoft.MSPaint_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.MicrosoftStickyNotes', 'Microsoft.MicrosoftStickyNotes_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.Windows.Photos', 'Microsoft.Windows.Photos_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsAlarms', 'Microsoft.WindowsAlarms_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsCalculator', 'Microsoft.WindowsCalculator_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsCamera', 'Microsoft.WindowsCamera_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsSoundRecorder', 'Microsoft.WindowsSoundRecorder_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.ScreenSketch', 'Microsoft.ScreenSketch_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.MSPaint', 'Microsoft.MSPaint_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.MicrosoftStickyNotes', 'Microsoft.MicrosoftStickyNotes_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.Windows.Photos', 'Microsoft.Windows.Photos_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsAlarms', 'Microsoft.WindowsAlarms_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsCalculator', 'Microsoft.WindowsCalculator_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsCamera', 'Microsoft.WindowsCamera_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.WindowsSoundRecorder', 'Microsoft.WindowsSoundRecorder_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.ScreenSketch', 'Microsoft.ScreenSketch_DonNotRemove') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\AppxPackages.json
 
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\Services.json -Raw) -replace 'UsoSvc', 'UsoSvc_DonNotStop') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\Services.json
-((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\Services.json -Raw) -replace 'DiagTrack', 'DiagTrack_DonNotStop') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\Services.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\Services.json -Raw) -replace 'UsoSvc', 'UsoSvc_DonNotStop') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\Services.json
+((Get-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\Services.json -Raw) -replace 'DiagTrack', 'DiagTrack_DonNotStop') | Set-Content -Path C:\WVD\Virtual-Desktop-Optimization-Tool-master\2009\ConfigurationFiles\Services.json
 
 #Create Optimisation script
 if (!(test-path -path c:\wvd\optimise.ps1)) {new-item -path c:\wvd -name Optimise.ps1 -ItemType File -Value '
-Get-ChildItem c:\WVD\Virtual-Desktop-Optimization-Tool-master\*.* | Unblock-File
-Set-Location c:\WVD\Virtual-Desktop-Optimization-Tool-master
+Get-ChildItem c:\WVD\Virtual-Desktop-Optimization-Tool-main\*.* | Unblock-File
+Set-Location c:\WVD\Virtual-Desktop-Optimization-Tool-main
 if ((gwmi win32_computersystem).partofdomain -eq $false) {exit 0}
 if (Test-Path "C:\WVD\DONOTDELETE.log") {exit 0}
 Set-ExecutionPolicy -ExecutionPolicy ByPass -Force
