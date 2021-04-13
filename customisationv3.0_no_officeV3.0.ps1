@@ -303,10 +303,15 @@ choco install mysql.workbench -y
 choco install vscode -y
 choco install dotnet-5.0-sdk -y
 
+#Write-Host '*** WVD Customisation *** INSTALL *** Install SQL Tools ***'
+#Invoke-WebRequest -Uri 'http://www.sqltools.net/downloads/InstallSQLTools_20b14.exe' -OutFile 'c:\temp\InstallSQLTools_20b14.exe'
+#Start-Sleep -Seconds 10
+#Invoke-Expression -Command 'C:\temp\InstallSQLTools_20b14.exe /S'
+
 Write-Host '*** WVD Customisation *** INSTALL *** Install SQL Tools ***'
-Invoke-WebRequest -Uri 'http://www.sqltools.net/downloads/InstallSQLTools_20b14.exe' -OutFile 'c:\temp\InstallSQLTools_20b14.exe'
+Invoke-WebRequest -Uri 'http://www.sqltools.net/downloads/InstallSQLTools_19b15.exe' -OutFile 'c:\temp\InstallSQLTools_19b15.exe'
 Start-Sleep -Seconds 10
-Invoke-Expression -Command 'C:\temp\InstallSQLTools_20b14.exe /S'
+Invoke-Expression -Command 'C:\temp\InstallSQLTools_19b15.exe /S'
 
 Write-Host '*** WVD Customisation *** INSTALL *** MYSQLServer v5 ***'
 # Note: Settings for FSLogix can be configured through GPO's)
