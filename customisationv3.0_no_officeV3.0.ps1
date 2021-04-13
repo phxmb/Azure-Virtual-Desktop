@@ -315,7 +315,7 @@ Expand-Archive -Path 'C:\temp\mysql-5.7.29-winx64.zip' -DestinationPath 'C:\mysq
 Start-Sleep -Seconds 10
 
 Write-Host '*** WVD Customisation *** INSTALL *** Install MSBuild ***'
-Invoke-WebRequest -Uri 'https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16#' -OutFile 'c:\temp\vs_buildtools_455.exe'
+Invoke-WebRequest -Uri 'https://download.visualstudio.microsoft.com/download/pr/1fbe074b-8ae1-4e9b-8e83-d1ce4200c9d1/591a8cd7b8cf7f97168d34903d2c968611cec8e3abd409600dd8b07160e3c185/vs_BuildTools.exe' -OutFile 'c:\temp\vs_buildtools_455.exe'
 Start-Sleep -Seconds 10
 Invoke-Expression -Command 'C:\temp\vs_buildtools_455.exe -q'
 
