@@ -316,7 +316,7 @@ Start-Sleep -Seconds 10
 Write-Host '*** WVD Customisation *** INSTALL *** Install MSBuild ***'
 Invoke-WebRequest -Uri 'https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16#' -OutFile 'c:\temp\vs_buildtools_455.exe'
 Start-Sleep -Seconds 10
-Invoke-Expression -Command 'C:\temp\InstallSQLTools_20b14.exe -q'
+Invoke-Expression -Command 'C:\temp\vs_buildtools_455.exe -q'
 
 Write-Host '*** WVD Customisation ********************* END *************************'
 
