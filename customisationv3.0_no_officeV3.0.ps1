@@ -305,7 +305,7 @@ choco install vscode -y
 Write-Host '*** WVD Customisation *** INSTALL *** Install SQL Tools ***'
 Invoke-WebRequest -Uri 'http://www.sqltools.net/downloads/InstallSQLTools_20b14.exe' -OutFile 'c:\temp\InstallSQLTools_20b14.exe'
 Start-Sleep -Seconds 10
-Invoke-Expression -Command 'C:\temp\InstallSQLTools_20b14.exe /install /quiet /norestart'
+Invoke-Expression -Command 'C:\temp\InstallSQLTools_20b14.exe /s'
 
 Write-Host '*** WVD Customisation *** INSTALL *** MYSQLServer v5 ***'
 # Note: Settings for FSLogix can be configured through GPO's)
