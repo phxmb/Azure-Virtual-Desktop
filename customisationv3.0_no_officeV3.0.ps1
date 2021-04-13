@@ -256,6 +256,7 @@ New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\W
 Write-Host '*** WVD Customisation *** INSTALL ONEDRIVE *** Uninstall Ondrive per-user mode and Install OneDrive in per-machine mode ***'
 Invoke-WebRequest -Uri 'https://aka.ms/OneDriveWVD-Installer' -OutFile 'c:\temp\OneDriveSetup.exe'
 New-Item -Path 'HKLM:\Software\Microsoft\OneDrive' -Force | Out-Null
+New-Item -Path 'HKLM:\SOFTWARE\Policies\Microsoft\OneDrive' -Force | Out-Null
 Start-Sleep -Seconds 10
 Invoke-Expression -Command 'C:\temp\OneDriveSetup.exe /uninstall'
 New-ItemProperty -Path 'HKLM:\Software\Microsoft\OneDrive' -Name 'AllUsersInstall' -Value '1' -PropertyType DWORD -Force | Out-Null
@@ -311,6 +312,11 @@ Write-Host '*** WVD Customisation *** INSTALL *** MYSQLServer v5 ***'
 Invoke-WebRequest -Uri 'https://downloads.mysql.com/archives/get/p/23/file/mysql-5.7.29-winx64.zip' -OutFile 'c:\temp\mysql-5.7.29-winx64.zip'
 Expand-Archive -Path 'C:\temp\mysql-5.7.29-winx64.zip' -DestinationPath 'C:\mysql\mysql-5.7.29-winx64\'  -Force
 Start-Sleep -Seconds 10
+
+Write-Host '*** WVD Customisation *** INSTALL *** Install MSBuild ***'
+Invoke-WebRequest -Uri 'https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16#' -OutFile 'c:\temp\vs_buildtools_455.exe'
+Start-Sleep -Seconds 10
+Invoke-Expression -Command 'C:\temp\InstallSQLTools_20b14.exe /install /quiet /norestart'
 
 Write-Host '*** WVD Customisation ********************* END *************************'
 
