@@ -301,6 +301,7 @@ choco install sql-server-express --version=2017.20190916 -y
 choco install ssms -y
 choco install mysql.workbench -y
 choco install vscode -y
+choco install dotnet-5.0-sdk -y
 
 Write-Host '*** WVD Customisation *** INSTALL *** Install SQL Tools ***'
 Invoke-WebRequest -Uri 'http://www.sqltools.net/downloads/InstallSQLTools_20b14.exe' -OutFile 'c:\temp\InstallSQLTools_20b14.exe'
