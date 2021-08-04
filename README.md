@@ -26,8 +26,6 @@ The M365AFE-Visio-Project.ps1 script will do the following:
 The contents of the xml file can be created using https://config.office.com/
 Create the xml file and past the output into the script
 
-Select all the applications you want. Deselected applications will be removed.
-
-From my testing, it does not appear to remove OneDrive (per machine) or Teams (per machine)
+Select all the applications you want. Deselected applications will be removed. Ensure Teams and OneDrive are deselected (https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#using-teams-with-per-machine-installation-and-microsoft-365-apps-for-enterprise). From my testing, the script does not appear to remove OneDrive (per machine) or Teams (per machine)
 
 Note: Ensure 'Shared Computer Activation' is selected when creating the XML config
