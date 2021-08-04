@@ -29,3 +29,5 @@ Create the xml file and past the output into the script
 Select all the applications you want. Deselected applications will be removed.
 
 From my testing, it does not appear to remove OneDrive (per machine) or Teams (per machine)
+
+Note: Ensure 'Shared Computer Activation' is selected when creating the XML config
