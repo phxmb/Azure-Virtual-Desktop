@@ -288,7 +288,6 @@ Set-ScheduledTask -TaskName 'AVD Customisation' -Principal $taskPrincipal -Setti
 if (!(test-path -path c:\AVD\FSLogix)) {new-item -path c:\AVD\FSLogix -itemtype directory}
 if (!(test-path -path c:\AVD\FSLogix\Redirections.xml)) {new-item -path c:\AVD\FSLogix -name Redirections.xml -ItemType File -Value '
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Generated 2019-04-29 from https://raw.githubusercontent.com/aaronparker/FSLogix/master/Redirections/Redirections.csv-->
 <FrxProfileFolderRedirection ExcludeCommonFolders="0">
 <Excludes>
 <Exclude Copy="0">Downloads</Exclude>
