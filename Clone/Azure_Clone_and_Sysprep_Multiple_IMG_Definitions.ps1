@@ -163,4 +163,4 @@ New-AzGalleryImageVersion -ResourceGroupName $galleriesRG -GalleryName $galleryN
 
 #Cleanup
 
-#Remove-AzResourceGroup -Name $TempRG -Force
+Remove-AzResourceGroup -Name $TempRG -Force
