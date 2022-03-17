@@ -64,7 +64,7 @@ Exit}
 ####################################################################################################################
 
 #Prompt the user to select the Network Subnet to be used
-$vnet = Get-AzVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $NetworkRG | Select-Object -Property Name, Subnets | Out-GridView -OutputMode Single -Title 'Select the Network Subnet to be used'
+$vnet = Get-AzVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $NetworkRG | Get-AzVirtualNetworkSubnetConfig | Select-Object -Property Name, Id | Out-GridView -OutputMode Single -Title 'Select the Network Subnet to be used'
 
 ####################################################################################################################
 
@@ -118,7 +118,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -ManagedDiskId $disk.Id -Cr
 #$vnet = Get-AzVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $NetworkRG
 
 # Create NIC in the first subnet of the virtual network
-$nic = New-AzNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') -ResourceGroupName $TempRG -Location $snapshot.Location -SubnetId $vnet.Subnets[0].Id #-PublicIpAddressId $publicIp.Id
+$nic = New-AzNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') -ResourceGroupName $TempRG -Location $snapshot.Location -SubnetId $vnet.Id #-PublicIpAddressId $publicIp.Id
 
 $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
 
