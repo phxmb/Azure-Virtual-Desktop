@@ -5,7 +5,7 @@ $FSLogixProfilePath1 = "\\stxxxavdfiles01.file.core.windows.net\profiles01"
 #$FSLogixProfilePath3 = "\\stxxxavdfiles01.file.core.windows.net\fsprofiles03"
 #$AppAttachPath = "\\stxxxavdfiles01.file.core.windows.net\appattach"
 
-$AADTenantID  = "xxxx.xxxx.xxxx.xxxx"
+$AADTenantID = "xxxx.xxxx.xxxx.xxxx"
 ########################################################
 
 ########################################################
