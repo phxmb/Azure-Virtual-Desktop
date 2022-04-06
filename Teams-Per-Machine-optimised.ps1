@@ -1,3 +1,5 @@
+$AADTenantID = "xxxxx"
+
 Write-Host '*** AVD Customisation *** INSTALL *** Install C++ Redist for RTCSvc (Teams Optimized) ***'
 Invoke-WebRequest -Uri 'https://aka.ms/vs/16/release/vc_redist.x64.exe' -OutFile 'c:\temp\vc_redist.x64.exe' -ErrorAction Stop
 Invoke-Expression -Command 'C:\temp\vc_redist.x64.exe /install /quiet /norestart'
@@ -16,3 +18,19 @@ Invoke-Expression -Command 'msiexec /i C:\temp\Teams.msi /quiet /l*v C:\AVD\team
 Write-Host '*** AVD Customisation *** CONFIG TEAMS *** Configure Teams to start at sign in for all users. ***'
 New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run -Name Teams -PropertyType Binary -Value ([byte[]](0x01,0x00,0x00,0x00,0x1a,0x19,0xc3,0xb9,0x62,0x69,0xd5,0x01)) -Force
 Start-Sleep -Seconds 30
+
+Write-Host '*** WVD Customisation *** INSTALL ONEDRIVE *** Uninstall Ondrive per-user mode and Install OneDrive in per-machine mode ***'
+Invoke-WebRequest -Uri 'https://aka.ms/OneDriveWVD-Installer' -OutFile 'c:\temp\OneDriveSetup.exe'
+New-Item -Path 'HKLM:\Software\Microsoft\OneDrive' -Force | Out-Null
+Start-Sleep -Seconds 10
+Invoke-Expression -Command 'C:\temp\OneDriveSetup.exe /uninstall'
+New-ItemProperty -Path 'HKLM:\Software\Microsoft\OneDrive' -Name 'AllUsersInstall' -Value '1' -PropertyType DWORD -Force | Out-Null
+Start-Sleep -Seconds 10
+Invoke-Expression -Command 'C:\temp\OneDriveSetup.exe /allusers'
+Start-Sleep -Seconds 10
+Write-Host '*** WVD Customisation *** CONFIG ONEDRIVE *** Configure OneDrive to start at sign in for all users. ***'
+New-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'OneDrive' -Value 'C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background' -Force | Out-Null
+Write-Host '*** WVD Customisation *** CONFIG ONEDRIVE *** Silently configure user account ***'
+New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\OneDrive' -Name 'SilentAccountConfig' -Value '1' -PropertyType DWORD -Force | Out-Null
+Write-Host '*** WVD Customisation *** CONFIG ONEDRIVE *** Redirect and move Windows known folders to OneDrive by running the following command. ***'
+New-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\OneDrive' -Name 'KFMSilentOptIn' -Value $AADTenantID -Force | Out-Null
