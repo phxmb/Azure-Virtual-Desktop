@@ -20,7 +20,7 @@ New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\
 Start-Sleep -Seconds 30
 
 Write-Host '*** WVD Customisation *** INSTALL ONEDRIVE *** Uninstall Ondrive per-user mode and Install OneDrive in per-machine mode ***'
-Invoke-WebRequest -Uri 'https://aka.ms/OneDriveWVD-Installer' -OutFile 'c:\temp\OneDriveSetup.exe'
+Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?linkid=844652' -OutFile 'c:\temp\OneDriveSetup.exe'
 New-Item -Path 'HKLM:\Software\Microsoft\OneDrive' -Force | Out-Null
 Start-Sleep -Seconds 10
 Invoke-Expression -Command 'C:\temp\OneDriveSetup.exe /uninstall'
