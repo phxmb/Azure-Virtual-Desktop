@@ -1,5 +1,5 @@
 
-
+Remove-Item -Path 'c:\AVD\optimise.ps1' -Force | Out-Null
 Remove-Item -Path 'c:\AVD\master.zip' -Force | Out-Null
 
 Write-Host '*** AVD Customisation *** CONFIG *** Deleting Language folder. ***'
