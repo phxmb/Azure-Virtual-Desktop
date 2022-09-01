@@ -5,7 +5,6 @@ Remove-Item -Path 'c:\AVD\master.zip' -Force | Out-Null
 Write-Host '*** AVD Customisation *** CONFIG *** Deleting Language folder. ***'
 if (test-path -path 'C:\AVD\Virtual-Desktop-Optimization-Tool') {
 Get-ChildItem -Path 'C:\AVD\Virtual-Desktop-Optimization-Tool' -Recurse | Remove-Item -Recurse -Force
-Remove-Item -Path 'C:\AVD\Language' -Force | Out-Null
 }
 
 #Upgrade all Application Packages Installed
