@@ -1,12 +1,4 @@
-########################################################
-#Set variables
-$FSLogixProfilePath1 = "\\stxxxavdfiles01.file.core.windows.net\profiles01"
-#$FSLogixProfilePath2 = "\\stxxxavdfiles01.file.core.windows.net\fslogixprofiles02"
-#$FSLogixProfilePath3 = "\\stxxxavdfiles01.file.core.windows.net\fsprofiles03"
-#$AppAttachPath = "\\stxxxavdfiles01.file.core.windows.net\appattach"
 
-$AADTenantID = "xxxx.xxxx.xxxx.xxxx"
-########################################################
 
 Remove-Item -Path 'c:\AVD\master.zip' -Force | Out-Null
 
