@@ -22,7 +22,7 @@ Expand-Archive -Path 'C:\AVD\master.zip' -DestinationPath 'C:\AVD\'  -Force
 Start-Sleep -Seconds 10
 
 #Overwriting the AppxPackage.json to configure which UWP are removed during optimisation
-(Get-Content -path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Enabled' , 'Disabled' | Set-Content -path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json;
+(Get-Content -path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Unchanged' , 'Disabled' | Set-Content -path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json;
 
 ((Get-Content -Path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.MSPaint', 'Microsoft.MSPaint_DoNotRemove') | Set-Content -Path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json
 ((Get-Content -Path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json -Raw) -replace 'Microsoft.MicrosoftStickyNotes', 'Microsoft.MicrosoftStickyNotes_DoNotRemove') | Set-Content -Path C:\AVD\Virtual-Desktop-Optimization-Tool-main\2009\ConfigurationFiles\AppxPackages.json
