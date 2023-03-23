@@ -1,0 +1,11 @@
+$accountName = "your storage account name"
+$accountKey = "your storage account key"
+$shareName = "your share name"
+$ctx = New-AzStorageContext -StorageAccountName $accountName -StorageAccountKey $accountKey
+$share = Get-AzStorageShare -Name $shareName
+$client = $share.ShareClient
+# We now have access to Azure Storage SDK and we can call any method available in the SDK.
+# Get statistics of the share
+$stats = $client.GetStatistics()
+$shareUsageInBytes = $stats.Value.ShareUsageInBytes
+Write-Host $shareUsageInBytes
